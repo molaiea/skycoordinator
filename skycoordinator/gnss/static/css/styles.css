@@ -2,6 +2,31 @@
     margin-right: 10%;
     margin-left: 10%;
 }
+
+#coordinates{
+    width: 100%;
+}
+
+.parsat{
+    color: white;
+    position: relative;
+}
+.but{
+    text-align: center;
+    margin: 4rem;
+}
+.everything{
+    position: relative;
+}
+
+.texte{
+    color: white;
+    font-weight: bold;
+}
+.nost{
+    margin-left: 30%;
+    margin-right: 30%;
+}
 /* .form-outline .form-control {
     min-height: auto !important;
     padding: 0.33em 0.75em !important;

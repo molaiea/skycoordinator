@@ -47,7 +47,10 @@ def MVNewtonsInputs(Guess,A,B,C,t,LA):
     error = 1
     iterations =1
     while iterations < 10 :
-        Dinv = np.linalg.inv(D)
+        if D.shape[0] == D.shape[1]:
+            Dinv = np.linalg.inv(D)
+        else : 
+            Dinv = np.linalg.inv(np.dot(D.T, D))
         V = np.dot(Dinv, -F)
         Gt = (Gt + V)
         F = FCreator(Gt.T[0],LA,A,B,C,t)
@@ -61,12 +64,15 @@ def sendData(req):
     # print(req.POST.get('data'))
     
     result = req.POST
+    print(result)
     NOSATS = int(result.get('nosats'))
     A = []
     B = []
     C = []
     t = []
     for i in range(NOSATS):
+        print("waaaaaaa")
+        print(result.get('data[{}][X]'.format(i)))
         A.append(int(result.get('data[{}][X]'.format(i))))
         B.append(int(result.get('data[{}][Y]'.format(i))))
         C.append(int(result.get('data[{}][Z]'.format(i))))
